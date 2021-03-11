@@ -32,6 +32,7 @@ class DescriptionOfGoods extends \yii\db\ActiveRecord
     {
         return [
             [['application_id', 'customer_id', 'user_id'], 'integer'],
+            [['description', 'ecl_group', 'ecl_item'], 'required'],
             [['description', 'ecl_group', 'ecl_item'], 'string', 'max' => 255],
         ];
     }
@@ -46,9 +47,9 @@ class DescriptionOfGoods extends \yii\db\ActiveRecord
             'application_id' => Yii::t('app', 'Application ID'),
             'customer_id' => Yii::t('app', 'Customer ID'),
             'user_id' => Yii::t('app', 'User ID'),
-            'description' => Yii::t('app', 'Description'),
-            'ecl_group' => Yii::t('app', 'Ecl Group'),
-            'ecl_item' => Yii::t('app', 'Ecl Item'),
+            'description' => Yii::t('app', 'Description of Controlled goods'),
+            'ecl_group' => Yii::t('app', 'ECL Group No.'),
+            'ecl_item' => Yii::t('app', 'ECL Item No.'),
         ];
     }
 }

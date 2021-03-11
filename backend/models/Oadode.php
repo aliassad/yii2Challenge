@@ -39,7 +39,10 @@ class Oadode extends \yii\db\ActiveRecord
     {
         return [
             [['application_id', 'customer_id', 'user_id', 'application_type', 'lang'], 'integer'],
-            [['legal_name', 'business_name', 'business_address', 'business_mailing_address', 'business_phone', 'business_fax', 'business_email', 'business_title'], 'string', 'max' => 255],
+            [['legal_name', 'business_name', 'business_address', 'business_mailing_address', 'business_phone', 'business_fax', 'business_email', ], 'string', 'max' => 255],
+            [['legal_name', 'business_name', 'business_address', 'business_mailing_address', 'business_phone', 'business_email', 'business_title','application_type','lang'], 'required'],
+            [['business_fax'], 'safe'],
+            [['business_email'], 'email'],
         ];
     }
 
@@ -55,14 +58,15 @@ class Oadode extends \yii\db\ActiveRecord
             'user_id' => Yii::t('app', 'User ID'),
             'legal_name' => Yii::t('app', 'Legal Name'),
             'business_name' => Yii::t('app', 'Business Name'),
-            'business_address' => Yii::t('app', 'Business Address'),
-            'business_mailing_address' => Yii::t('app', 'Business Mailing Address'),
-            'business_phone' => Yii::t('app', 'Business Phone'),
-            'business_fax' => Yii::t('app', 'Business Fax'),
-            'business_email' => Yii::t('app', 'Business Email'),
-            'application_type' => Yii::t('app', 'Application Type'),
-            'business_title' => Yii::t('app', 'Business Title'),
-            'lang' => Yii::t('app', 'Lang'),
+            'business_address' => Yii::t('app', 'Civic Address'),
+            'business_mailing_address' => Yii::t('app', 'Mailing Address (if different from civic address)'),
+            'business_phone' => Yii::t('app', 'Telephone Number (Include extension no. if applicable)'),
+            'business_fax' => Yii::t('app', 'Facsimile Number'),
+            'business_email' => Yii::t('app', 'E-mail'),
+            'application_type' => Yii::t('app', 'Type of Application'),
+            'business_title' => Yii::t('app', 'Business Title (Select all that apply)'),
+            'lang' => Yii::t('app', 'Preferred Language of Correspondence'),
         ];
     }
+
 }
